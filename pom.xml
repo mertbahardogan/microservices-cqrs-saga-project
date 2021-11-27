@@ -6,6 +6,7 @@
     <modules>
         <module>product-service</module>
         <module>discovery-service</module>
+        <module>api-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -91,6 +92,13 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox.version}</version>
             </dependency>
+            <!--Spring Web Reactive -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web-reactive</artifactId>
+                <version>5.0.0.M4</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
