@@ -40,6 +40,7 @@
         <springfox.version>3.0.0</springfox.version>
         <spring-cloud.version>3.0.4</spring-cloud.version>
         <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
+        <axon-spring-boot-starter.version>4.5.5</axon-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -97,6 +98,18 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web-reactive</artifactId>
                 <version>5.0.0.M4</version>
+            </dependency>
+            <!-- Axon Framework -->
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-spring-boot-starter</artifactId>
+                <version>${axon-spring-boot-starter.version}</version>
+            </dependency>
+            <!-- Google Guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.1-jre</version>
             </dependency>
 
         </dependencies>
