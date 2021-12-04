@@ -1,13 +1,11 @@
-package com.microservices.ecommerce.product.service.events;
+package com.microservices.ecommerce.product.service.core.models;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-public class ProductCreatedEvent {
-
-    private String productId;
+public class CreateProductRequestModel {
     private String title;
     private BigDecimal price;
     private Integer quantity;
