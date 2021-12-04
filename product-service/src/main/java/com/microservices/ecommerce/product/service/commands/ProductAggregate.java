@@ -1,6 +1,6 @@
 package com.microservices.ecommerce.product.service.commands;
 
-import com.microservices.ecommerce.product.service.events.ProductCreatedEvent;
+import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;

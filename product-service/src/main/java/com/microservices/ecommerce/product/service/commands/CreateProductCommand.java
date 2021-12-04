@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Builder
 @Data
 public class CreateProductCommand {
+
     @TargetAggregateIdentifier
     private final String productId;
     private final String title;

@@ -1,7 +1,7 @@
 package com.microservices.ecommerce.product.service.api;
 
 import com.microservices.ecommerce.product.service.commands.CreateProductCommand;
-import com.microservices.ecommerce.product.service.entities.CreateProductRequestModel;
+import com.microservices.ecommerce.product.service.core.models.CreateProductRequestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.web.bind.annotation.*;
