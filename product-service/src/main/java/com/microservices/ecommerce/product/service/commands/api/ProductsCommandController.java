@@ -1,7 +1,7 @@
-package com.microservices.ecommerce.product.service.api;
+package com.microservices.ecommerce.product.service.commands.api;
 
 import com.microservices.ecommerce.product.service.commands.CreateProductCommand;
-import com.microservices.ecommerce.product.service.core.models.CreateProductRequestModel;
+import com.microservices.ecommerce.product.service.commands.models.CreateProductRequestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +10,12 @@ import java.util.UUID;
 
 @RequestMapping("products")
 @RestController
-public class ProductsController {
+public class ProductsCommandController {
 
     private final CommandGateway commandGateway;
 
     @ConstructorBinding
-    public ProductsController(CommandGateway commandGateway) {
+    public ProductsCommandController(CommandGateway commandGateway) {
         this.commandGateway = commandGateway;
     }
 
