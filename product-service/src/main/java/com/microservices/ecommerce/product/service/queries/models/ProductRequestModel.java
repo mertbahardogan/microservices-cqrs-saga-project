@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class ProductRestModel {
+public class ProductRequestModel {
 
     private String productId;
     private String title;
