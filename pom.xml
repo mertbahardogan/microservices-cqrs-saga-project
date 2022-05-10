@@ -22,7 +22,7 @@
             <email>mbahardogan4@gmail.com</email>
             <roles>
                 <role>
-                    Jr. Computer Engineer
+                    Jr. Software Engineer
                 </role>
             </roles>
         </developer>
@@ -45,6 +45,7 @@
         <guava.version>30.1-jre</guava.version>
         <axon-spring-boot-starter.version>4.5.5</axon-spring-boot-starter.version>
         <h2-database.version>1.4.200</h2-database.version>
+        <spring-boot-admin-server-ui-login.version>1.5.7</spring-boot-admin-server-ui-login.version>
     </properties>
 
     <dependencyManagement>
@@ -144,6 +145,17 @@
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!-- Admin Server Security-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui-login</artifactId>
+                <version>${spring-boot-admin-server-ui-login.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
         </dependencies>
