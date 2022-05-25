@@ -57,14 +57,20 @@ axoniq.axonserver.name=My Axon Server
 axoniq.axonserver.hostname=localhost
 axoniq.axonserver.devmode.enabled=true
 
--Address: 
-http://localhost:8024/
+### Addresses:
+Axon Server: http://localhost:8024/
+Product Server: 
+#### Swagger Main URL: http://localhost:RANDOM_PORT/api/v1/swagger-ui/
+#### Gateway Swagger Main URL: http://localhost:8088/swagger-ui/  //This URL does not work.
+// All services will be running automatically, do not forget. 
+
 
 ### Resources
 
 1. https://www.baeldung.com/spring-boot-admin
 2. https://www.baeldung.com/axon-cqrs-event-sourcing
 3. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
+4. https://metinalniacik.medium.com/lombok-k%C3%BCt%C3%BCphanesinde-builder-anotasyonu-639325cb8de7
 
 ### Other Examples
 

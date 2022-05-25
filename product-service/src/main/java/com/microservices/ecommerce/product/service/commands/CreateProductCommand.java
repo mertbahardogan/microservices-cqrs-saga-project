@@ -1,13 +1,15 @@
 package com.microservices.ecommerce.product.service.commands;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 import java.math.BigDecimal;
 
+//@Builder annotation provides Builder Design Pattern benefits.
+
 @Builder
-@Data
+@Getter
 public class CreateProductCommand {
 
     @TargetAggregateIdentifier
