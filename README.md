@@ -1,5 +1,14 @@
 # Getting Started with Microservices Arch.
 
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#">Technologies</a>
+    </li>
+  </ol>
+</details>
+
 ## Built With
 
 ### Technologies
@@ -48,29 +57,35 @@ Wikipedia daki tanımı ‘Yazılım kodunun yapısının ve dilinin iş alanıy
 işlemleri daha hızlı yapabilmemizi sağlar.
 
 #### How to install Axon Server
--Run the following command:
-docker run -d --name axonserver -p 8024:8024 -p 8124:8124 -v "W:\documents\axon-docker\data":/data -v "W:\documents\axon-docker\eventdata":/eventdata -v "W:\documents\axon-docker\config":/config axoniq/axonserver
+Run the following command:
+  ```sh
+   docker run -d --name axonserver -p 8024:8024 -p 8124:8124 -v "W:\documents\axon-docker\data":/data -v "W:\documents\axon-docker\eventdata":/eventdata -v "W:\documents\axon-docker\config":/config axoniq/axonserver
+   ```
 
--Add the following rows in local /config folder as file name "axonserver.properties":
+Add the following rows in local /config folder as file name "axonserver.properties":
+ ```sh
 server.port=8024
 axoniq.axonserver.name=My Axon Server
 axoniq.axonserver.hostname=localhost
 axoniq.axonserver.devmode.enabled=true
+   ```
 
-### Addresses:
-Axon Server: http://localhost:8024/
-Product Server: 
-#### Swagger Main URL: http://localhost:RANDOM_PORT/api/v1/swagger-ui/
-#### Gateway Swagger Main URL: http://localhost:8088/swagger-ui/  //This URL does not work.
-// All services will be running automatically, do not forget. 
+### URL List
 
+* [Axon Server](http://localhost:8024/)
+* [Product Service-Swagger](http://localhost:RANDOM_PORT/api/v1/swagger-ui/)
+* [Product Service-Gateway](http://localhost:8088/swagger-ui/) 
 
+### Todo List  
+* Product Gatewat URL does not work.
+* All services will be up together. 
 ### Resources
 
 1. https://www.baeldung.com/spring-boot-admin
 2. https://www.baeldung.com/axon-cqrs-event-sourcing
 3. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
 4. https://metinalniacik.medium.com/lombok-k%C3%BCt%C3%BCphanesinde-builder-anotasyonu-639325cb8de7
+5. https://medium.com/@bilgehan.yildiz/axon-framework-kullanarak-spring-boot-i%CC%87le-cqrs-pattern-i%CC%87mplementasyonu-part-1-85fc5e15acd8
 
 ### Other Examples
 
