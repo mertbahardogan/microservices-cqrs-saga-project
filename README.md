@@ -14,7 +14,7 @@
 ### Technologies
 1. Java 
 2. Spring Boot
-3. Spring Cloud (Eureka & Api Gateway)
+3. Spring Cloud (Eureka & API Gateway)
 4. CQRS Pattern
 5. Saga Pattern
 6. Axon Server
@@ -56,6 +56,11 @@ Wikipedia daki tanımı ‘Yazılım kodunun yapısının ve dilinin iş alanıy
 "Axon Server" ise Axon Framework'e entegre veya ayrı olarak kullabilen Event, Command mesajlarının birbiri arasında yönlendirilmesi, monitoring ve security gibi 
 işlemleri daha hızlı yapabilmemizi sağlar.
 
+### Google Guava
+
+Collection nesnelerini birleştirmek, parçalamak için methodlara sahip sınıflar içeren bir collection kütüphanesidir.
+
+
 #### How to install Axon Server
 Run the following command:
   ```sh
@@ -76,9 +81,15 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Service-Swagger](http://localhost:RANDOM_PORT/api/v1/swagger-ui/)
 * [Product Service-Gateway](http://localhost:8088/swagger-ui/) 
 
+### CQRS Naming Conventions
+* Command -> (PerformedAction)(Noun)Command (CreateProductCommand)
+* Event -> (Noun)(PerformedAction)Event (ProductCreatedEvent)
+* Query -> 
+
 ### Todo List  
-* Product Gatewat URL does not work.
+* Product Gateway URL does not work.
 * All services will be up together. 
+
 ### Resources
 
 1. https://www.baeldung.com/spring-boot-admin

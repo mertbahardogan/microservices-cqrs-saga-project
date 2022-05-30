@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Builder annotation provides Builder Design Pattern benefits.
 
 @TargetAggregateIdentifier field or method level annotation.
-This annotation required for aggregate id in command class
+This annotation is required to indicate the Aggregate ID in the command class.
 */
 
 @Builder
@@ -18,7 +18,7 @@ This annotation required for aggregate id in command class
 public class CreateProductCommand {
 
     @TargetAggregateIdentifier
-    private final String productId; //debuglayalım axon içerisinde neye dönüşüyor?
+    private final String productId; // Aggregate ID
     private final String title;
     private final BigDecimal price;
     private final Integer quantity;

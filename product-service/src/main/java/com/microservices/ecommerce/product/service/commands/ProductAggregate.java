@@ -10,20 +10,32 @@ import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 
+/*
+Aggregate is entity set. Entity (Product) State, Command Handlers (Handle CreateProductCommand), Business Logic (Validation, desicion making),
+Event Handlers (Event Sourcing Handler Methods) are included in the Aggregate Class (ProductAggregate).
+Command Bus -> Aggregate -> Event Bus
+ */
+
 @Aggregate
 public class ProductAggregate {
 
-    @AggregateIdentifier
-    private String productId;
+    @AggregateIdentifier  // should be String, UUD or Integer (not primitive) etc.
+    private String productId; // this field must match create Product Command productId otherwise aggregate not found error will be returned.
     private String title;
     private BigDecimal price;
     private Integer quantity;
 
-    public ProductAggregate(){}
+    // First Const: Default, NoArgsConst
+    public ProductAggregate(){
 
+
+    }
+
+    // Second Const
     @CommandHandler
     public ProductAggregate(CreateProductCommand createProductCommand){
-        // Validate Create Product Command
+        // Validate CreateProductCommand
+
         if(createProductCommand.getPrice().compareTo(BigDecimal.ZERO)<=0){
             throw new IllegalArgumentException("Price cannot be less or equal than zero");
         }
@@ -32,7 +44,10 @@ public class ProductAggregate {
         }
 
         ProductCreatedEvent productCreatedEvent=new ProductCreatedEvent();
+        // The following code snippet allows copying the createProductCommand object to the productCreatedEvent object.
         BeanUtils.copyProperties(createProductCommand,productCreatedEvent);
+        // The Apply method is used to publish an event over an aggregate.
+        // While executing a command, it notifies the rest of the application that a new event has been created.
         AggregateLifecycle.apply(productCreatedEvent);
     }
 

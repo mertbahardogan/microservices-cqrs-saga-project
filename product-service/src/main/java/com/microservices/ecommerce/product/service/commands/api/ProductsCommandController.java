@@ -30,7 +30,9 @@ public class ProductsCommandController {
                 .productId(UUID.randomUUID().toString()).build();
 
         String returnedValue;
+
         try {
+            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate method.
             returnedValue = commandGateway.sendAndWait(createProductCommand);
         }catch (Exception e){
             returnedValue=e.getLocalizedMessage();

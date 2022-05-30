@@ -4,6 +4,8 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+//Same class as CreateProductCommand in terms of fields.
+
 @Data
 public class ProductCreatedEvent {
 
