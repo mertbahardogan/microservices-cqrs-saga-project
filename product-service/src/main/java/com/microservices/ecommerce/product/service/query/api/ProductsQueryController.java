@@ -1,7 +1,7 @@
-package com.microservices.ecommerce.product.service.queries.api;
+package com.microservices.ecommerce.product.service.query.api;
 
-import com.microservices.ecommerce.product.service.queries.FindProductsQuery;
-import com.microservices.ecommerce.product.service.queries.models.ProductRequestModel;
+import com.microservices.ecommerce.product.service.query.FindProductsQuery;
+import com.microservices.ecommerce.product.service.query.models.ProductRequestModel;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;

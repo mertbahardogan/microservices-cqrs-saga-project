@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.product.service.commands.models;
+package com.microservices.ecommerce.product.service.command.models;
 
 import lombok.Data;
 

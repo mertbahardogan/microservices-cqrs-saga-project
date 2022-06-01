@@ -1,8 +1,8 @@
-package com.microservices.ecommerce.product.service.queries;
+package com.microservices.ecommerce.product.service.query;
 
 import com.microservices.ecommerce.product.service.core.dataAccess.ProductDao;
 import com.microservices.ecommerce.product.service.core.entities.ProductEntity;
-import com.microservices.ecommerce.product.service.queries.models.ProductRequestModel;
+import com.microservices.ecommerce.product.service.query.models.ProductRequestModel;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;

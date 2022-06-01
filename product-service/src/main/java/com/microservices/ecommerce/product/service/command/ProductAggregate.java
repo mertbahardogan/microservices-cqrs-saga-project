@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.product.service.commands;
+package com.microservices.ecommerce.product.service.command;
 
 import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
@@ -26,36 +26,34 @@ public class ProductAggregate {
     private Integer quantity;
 
     // First Const: Default, NoArgsConst
-    public ProductAggregate(){
-
-
+    public ProductAggregate() {
     }
 
-    // Second Const
+    // Second Const: Publish Event
     @CommandHandler
-    public ProductAggregate(CreateProductCommand createProductCommand){
+    public ProductAggregate(CreateProductCommand createProductCommand) {
         // Validate CreateProductCommand
 
-        if(createProductCommand.getPrice().compareTo(BigDecimal.ZERO)<=0){
+        if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Price cannot be less or equal than zero");
         }
-        if(createProductCommand.getTitle()==null||createProductCommand.getTitle().isBlank()){
+        if (createProductCommand.getTitle() == null || createProductCommand.getTitle().isBlank()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
 
-        ProductCreatedEvent productCreatedEvent=new ProductCreatedEvent();
+        ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent();
         // The following code snippet allows copying the createProductCommand object to the productCreatedEvent object.
-        BeanUtils.copyProperties(createProductCommand,productCreatedEvent);
+        BeanUtils.copyProperties(createProductCommand, productCreatedEvent);
         // The Apply method is used to publish an event over an aggregate.
         // While executing a command, it notifies the rest of the application that a new event has been created.
-        AggregateLifecycle.apply(productCreatedEvent);
+        AggregateLifecycle.apply(productCreatedEvent); // publish event
     }
 
     @EventSourcingHandler
-    public void on(ProductCreatedEvent productCreatedEvent){
-        this.productId=productCreatedEvent.getProductId();
-        this.title=productCreatedEvent.getTitle();
-        this.price=productCreatedEvent.getPrice();
-        this.quantity=productCreatedEvent.getQuantity();
+    public void on(ProductCreatedEvent productCreatedEvent) {
+        this.productId = productCreatedEvent.getProductId();
+        this.title = productCreatedEvent.getTitle();
+        this.price = productCreatedEvent.getPrice();
+        this.quantity = productCreatedEvent.getQuantity();
     }
 }

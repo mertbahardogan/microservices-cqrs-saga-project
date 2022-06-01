@@ -1,7 +1,7 @@
-package com.microservices.ecommerce.product.service.commands.api;
+package com.microservices.ecommerce.product.service.command.api;
 
-import com.microservices.ecommerce.product.service.commands.CreateProductCommand;
-import com.microservices.ecommerce.product.service.commands.models.CreateProductRequestModel;
+import com.microservices.ecommerce.product.service.command.CreateProductCommand;
+import com.microservices.ecommerce.product.service.command.models.CreateProductRequestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

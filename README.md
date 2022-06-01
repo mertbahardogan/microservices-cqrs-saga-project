@@ -30,9 +30,11 @@
 Mikroservis mimarisinde her mikroservis için ayrı bir database kullanılıyorsa özellikle long running işlemlerde transaction yönetimini sağlamamız 
 için Saga Pattern uygulanabilir. Transaction yönetimi, bütünlüğü, veri tutarlılığını (consistency) amaçlar.
 
-Burada X Saga Pattern uygulanmıştır. 
+Burada " " Saga Pattern uygulanmıştır. 
 
 ### What is CQRS(Command Query Responsibility Segregation)?
+
+CQRS kullanmak ölçeklenebilirliği, performansı ve güvenliği artırmaya yardımcı olabilir. 
 
 Command: Express the intent to change the application's state.
 Query: Express the desire for information. 
@@ -42,6 +44,14 @@ CQRS ise bu iki işlem tipini birbirinden "ayrıştırarak" farklı data modelle
 
 Handlers: Uygulama üzerinde yapılacak her command ve query isteklerini işleyecek yapılara denir.
 Aggregate: Her zaman tutarlı bir durumda tutulan varlık/varlıklar grubudur. Değişimin başladığı yerdir, business entitysi olarak düşünülebilir.
+
+#### CQRS Naming Conventions
+* Command -> (PerformedAction)(Noun)Command (CreateProductCommand)
+* Event -> (Noun)(PerformedAction)Event (ProductCreatedEvent)
+* Query ->
+
+#### First Part: CRS Flow
+CommandGateway(Send) → Aggregate → CommandHandler(Command) → EventSourcingHandler(Event) → EventHandler → Db
 
 ### What is Event Sourcing? 
 Sistemde gerçekleşmiş olayların (eventlerin) biriktirilmesi fikri üzerine çıkmıştır. CQRS’in bir parçası olarak kullanılabilir. Bir objenin son durumunu 
@@ -60,6 +70,23 @@ işlemleri daha hızlı yapabilmemizi sağlar.
 
 Collection nesnelerini birleştirmek, parçalamak için methodlara sahip sınıflar içeren bir collection kütüphanesidir.
 
+### H2 Database
+
+Java tabanlı bellekte çalışan bir SQL veritabanıdır. Sistemde gömülü veya sunucu-istemci çalışabilen ve kolayca
+kurulabilen veritabanıdır.
+
+### Axon Framework Informations
+
+* EventSourcingHandler: Gönderilen eventin işleyicisini belirtmek için annotasyon
+
+* CommandHandler: Gönderilen komutun işleyicisini belirtmek için annotasyon
+
+* Projector Sınıfları: Axon Framework'te her bir event geldiği zaman DB işlemlerini yapacak sınıfları
+tanımlamak için oluşturulan....
+
+* EventHandler: Yaratılmış event geldikten sonra projector sınıfı içerisinde eventleri dinlemek için oluşturular metodların tepesine konulan annotasyon.
+
+* 
 
 #### How to install Axon Server
 Run the following command:
@@ -81,14 +108,14 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Service-Swagger](http://localhost:RANDOM_PORT/api/v1/swagger-ui/)
 * [Product Service-Gateway](http://localhost:8088/swagger-ui/) 
 
-### CQRS Naming Conventions
-* Command -> (PerformedAction)(Noun)Command (CreateProductCommand)
-* Event -> (Noun)(PerformedAction)Event (ProductCreatedEvent)
-* Query -> 
 
 ### Todo List  
 * Product Gateway URL does not work.
-* All services will be up together. 
+* Why we used Serializable and serialVersionUID in entity class?
+* Why I did not see validation errors in aggregate class?
+* What is the public void on class?
+* AxonConfig (5): All events come again every starts.
+* db-gateway-debug
 
 ### Resources
 
@@ -97,6 +124,8 @@ axoniq.axonserver.devmode.enabled=true
 3. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
 4. https://metinalniacik.medium.com/lombok-k%C3%BCt%C3%BCphanesinde-builder-anotasyonu-639325cb8de7
 5. https://medium.com/@bilgehan.yildiz/axon-framework-kullanarak-spring-boot-i%CC%87le-cqrs-pattern-i%CC%87mplementasyonu-part-1-85fc5e15acd8
+6. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
+7. https://martinfowler.com/bliki/CQRS.html
 
 ### Other Examples
 

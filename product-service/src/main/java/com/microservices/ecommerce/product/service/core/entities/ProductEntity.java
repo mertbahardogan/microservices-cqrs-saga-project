@@ -9,11 +9,12 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
+@Entity // Marks that class as JPA Entity.
 @Table(name = "products")
 @Data
 public class ProductEntity implements Serializable {
 
+    // Is that row necessary for us?
     public static final Long serialVersionUID = -227781238123213L;
 
     @Id
@@ -24,5 +25,6 @@ public class ProductEntity implements Serializable {
     private String title;
 
     private BigDecimal price;
+
     private Integer quantity;
 }

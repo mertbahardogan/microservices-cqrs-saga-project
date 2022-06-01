@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.product.service.queries.models;
+package com.microservices.ecommerce.product.service.query.models;
 
 import lombok.Data;
 

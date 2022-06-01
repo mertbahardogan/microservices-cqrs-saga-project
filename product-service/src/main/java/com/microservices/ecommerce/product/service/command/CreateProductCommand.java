@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.product.service.commands;
+package com.microservices.ecommerce.product.service.command;
 
 import lombok.Builder;
 import lombok.Getter;
