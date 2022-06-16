@@ -8,7 +8,10 @@ import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 @Data
-public class CreateProductRequestModel {
+public class CreateProductRestModel {
+
+    // Java Bean Validations
+    // message corresponds to defaultMessage in error JSON object
     @NotBlank(message = "Product title is a required field.")
     private String title;
 

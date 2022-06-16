@@ -1,7 +1,7 @@
 package com.microservices.ecommerce.product.service.command.api;
 
 import com.microservices.ecommerce.product.service.command.CreateProductCommand;
-import com.microservices.ecommerce.product.service.command.models.CreateProductRequestModel;
+import com.microservices.ecommerce.product.service.command.models.CreateProductRestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +21,12 @@ public class ProductsCommandController {
     }
 
     @PostMapping()
-    public String createProduct(@Valid @RequestBody CreateProductRequestModel createProductRequestModel) {
+    public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel) {
 
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
-                .price(createProductRequestModel.getPrice())
-                .quantity(createProductRequestModel.getQuantity())
-                .title(createProductRequestModel.getTitle())
+                .price(createProductRestModel.getPrice())
+                .quantity(createProductRestModel.getQuantity())
+                .title(createProductRestModel.getTitle())
                 .productId(UUID.randomUUID().toString()).build();
 
         String returnedValue;

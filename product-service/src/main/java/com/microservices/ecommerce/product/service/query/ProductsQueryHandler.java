@@ -2,7 +2,7 @@ package com.microservices.ecommerce.product.service.query;
 
 import com.microservices.ecommerce.product.service.core.dataAccess.ProductDao;
 import com.microservices.ecommerce.product.service.core.entities.ProductEntity;
-import com.microservices.ecommerce.product.service.query.models.ProductRequestModel;
+import com.microservices.ecommerce.product.service.query.models.ProductRestModel;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
@@ -19,15 +19,17 @@ public class ProductsQueryHandler {
         this.productDao = productDao;
     }
 
+    // It communicates with the Query Bus. It performs the query with the incoming events.
     @QueryHandler
-    public List<ProductRequestModel> findProducts(FindProductsQuery findProductsQuery) {
-        List<ProductRequestModel> productRequestModels = new ArrayList<>();
+    public List<ProductRestModel> findProducts(FindProductsQuery findProductsQuery) {
+        List<ProductRestModel> productRestModels = new ArrayList<>();
         List<ProductEntity> storedProducts = productDao.findAll();
+
         for(ProductEntity productEntity:storedProducts){
-            ProductRequestModel productRequestModel =new ProductRequestModel();
-            BeanUtils.copyProperties(productEntity, productRequestModel);
-            productRequestModels.add(productRequestModel);
+            ProductRestModel productRestModel =new ProductRestModel();
+            BeanUtils.copyProperties(productEntity, productRestModel);
+            productRestModels.add(productRestModel);
         }
-        return productRequestModels;
+        return productRestModels;
     }
 }

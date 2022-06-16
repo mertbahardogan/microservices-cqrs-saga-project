@@ -32,8 +32,8 @@ public class ProductAggregate {
     // Second Const: Publish Event
     @CommandHandler
     public ProductAggregate(CreateProductCommand createProductCommand) {
-        // Validate CreateProductCommand
 
+        // Validate CreateProductCommand
         if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Price cannot be less or equal than zero");
         }

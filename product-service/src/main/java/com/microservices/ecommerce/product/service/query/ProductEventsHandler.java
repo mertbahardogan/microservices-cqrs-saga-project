@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 Projection Class
 The method (event handler) provides, that every time an event comes from the commandGateway, this method catches the event and we can do whatever we want.
 */
-
+//Bu sınıfın burda olması kafa karıştırmasın!!!! Sebebini öğrenelim!
 @Component
 public class ProductEventsHandler {
 
@@ -21,7 +21,7 @@ public class ProductEventsHandler {
         this.productDao = productDao;
     }
 
-    // Consume Event
+    // Consume Command Event
     @EventHandler
     public void on(ProductCreatedEvent productCreatedEvent) {
         // Save Event through Entity to DB

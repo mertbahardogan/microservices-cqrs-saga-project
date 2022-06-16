@@ -1,7 +1,7 @@
 package com.microservices.ecommerce.product.service.query.api;
 
 import com.microservices.ecommerce.product.service.query.FindProductsQuery;
-import com.microservices.ecommerce.product.service.query.models.ProductRequestModel;
+import com.microservices.ecommerce.product.service.query.models.ProductRestModel;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,22 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductsQueryController {
 
+    private final QueryGateway queryGateway;
+
     @Autowired
-    QueryGateway queryGateway;
+    public ProductsQueryController(QueryGateway queryGateway) {
+        this.queryGateway = queryGateway;
+    }
+
 
     @GetMapping("all")
-    public List<ProductRequestModel> getProducts() {
+    public List<ProductRestModel> getProducts() {
+        // For query parameter.
         FindProductsQuery findProductsQuery=new FindProductsQuery();
-        List<ProductRequestModel> products= queryGateway.query(findProductsQuery, ResponseTypes.multipleInstancesOf(ProductRequestModel.class)).join();
+        // multipleInstancesOf returns all.
+        List<ProductRestModel> products= queryGateway.query(findProductsQuery,
+                ResponseTypes.multipleInstancesOf(ProductRestModel.class)).join();
         return products;
     }
 }
+

@@ -48,10 +48,13 @@ Aggregate: Her zaman tutarlı bir durumda tutulan varlık/varlıklar grubudur. D
 #### CQRS Naming Conventions
 * Command -> (PerformedAction)(Noun)Command (CreateProductCommand)
 * Event -> (Noun)(PerformedAction)Event (ProductCreatedEvent)
-* Query ->
+* Query -> (PerformedAction)(Noun)Query (FindProductQuery)
 
 #### First Part: CRS Flow
 CommandGateway(Send) → Aggregate → CommandHandler(Command) → EventSourcingHandler(Event) → EventHandler → Db
+
+#### Second Part: QRS Flow
+QueryGateway(Query) → QueryHandler → Db
 
 ### What is Event Sourcing? 
 Sistemde gerçekleşmiş olayların (eventlerin) biriktirilmesi fikri üzerine çıkmıştır. CQRS’in bir parçası olarak kullanılabilir. Bir objenin son durumunu 
@@ -77,7 +80,7 @@ kurulabilen veritabanıdır.
 
 ### Axon Framework Informations
 
-* EventSourcingHandler: Gönderilen eventin işleyicisini belirtmek için annotasyon
+* EventSourcingHandler: Gönderilen eventin işleyicisini belirtmek için annotasyon? source tamamen bunla mı oluyor?
 
 * CommandHandler: Gönderilen komutun işleyicisini belirtmek için annotasyon
 
@@ -86,7 +89,7 @@ tanımlamak için oluşturulan....
 
 * EventHandler: Yaratılmış event geldikten sonra projector sınıfı içerisinde eventleri dinlemek için oluşturular metodların tepesine konulan annotasyon.
 
-* 
+* QueryHandler: Gelen eventleri sorgulamada kullanılan annotasyon.
 
 #### How to install Axon Server
 Run the following command:
@@ -106,11 +109,15 @@ axoniq.axonserver.devmode.enabled=true
 
 * [Axon Server](http://localhost:8024/)
 * [Product Service-Swagger](http://localhost:RANDOM_PORT/api/v1/swagger-ui/)
-* [Product Service-Gateway](http://localhost:8088/swagger-ui/) 
+* [Product Service-Gateway](http://localhost:8088/swagger-ui/)
+* [Product Database](http://localhost:RANDOM_PORT/api/v1/h2-console)
 
 
 ### Todo List  
-* Product Gateway URL does not work.
+* All project DEBUG
+* Product Gateway URL does not work. IMPORTANT
+localhost:8088/products-service/products /GET ile veriyi alabiliyor.
+  
 * Why we used Serializable and serialVersionUID in entity class?
 * Why I did not see validation errors in aggregate class?
 * What is the public void on class?
@@ -126,6 +133,7 @@ axoniq.axonserver.devmode.enabled=true
 5. https://medium.com/@bilgehan.yildiz/axon-framework-kullanarak-spring-boot-i%CC%87le-cqrs-pattern-i%CC%87mplementasyonu-part-1-85fc5e15acd8
 6. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
 7. https://martinfowler.com/bliki/CQRS.html
+8. https://blog.burakkutbay.com/spring-boot-h2-gomulu-veritabani-kullanmak.html/
 
 ### Other Examples
 
