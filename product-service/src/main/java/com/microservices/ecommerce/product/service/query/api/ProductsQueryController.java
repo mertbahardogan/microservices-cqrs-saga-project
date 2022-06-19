@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("products")
 public class ProductsQueryController {
 
     private final QueryGateway queryGateway;
@@ -23,7 +23,7 @@ public class ProductsQueryController {
     }
 
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<ProductRestModel> getProducts() {
         // For query parameter.
         FindProductsQuery findProductsQuery=new FindProductsQuery();

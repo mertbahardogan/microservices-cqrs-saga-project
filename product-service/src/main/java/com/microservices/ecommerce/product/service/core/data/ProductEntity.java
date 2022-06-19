@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.product.service.core.entities;
+package com.microservices.ecommerce.product.service.core.data;
 
 import lombok.Data;
 
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @Data
 public class ProductEntity implements Serializable {
 
-    // Is that row necessary for us?
+    //TODO: Is that row necessary for us?
     public static final Long serialVersionUID = -227781238123213L;
 
     @Id

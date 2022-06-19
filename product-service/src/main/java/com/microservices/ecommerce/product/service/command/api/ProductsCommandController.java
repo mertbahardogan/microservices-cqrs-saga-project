@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@RequestMapping("products")
 @RestController
+@RequestMapping("products")
 public class ProductsCommandController {
 
     private final CommandGateway commandGateway;
@@ -32,7 +32,7 @@ public class ProductsCommandController {
         String returnedValue;
 
         try {
-            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate method.
+            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate constructor.
             returnedValue = commandGateway.sendAndWait(createProductCommand);
         }catch (Exception e){
             returnedValue=e.getLocalizedMessage();

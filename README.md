@@ -91,7 +91,21 @@ tanımlamak için oluşturulan....
 
 * QueryHandler: Gelen eventleri sorgulamada kullanılan annotasyon.
 
-#### How to install Axon Server
+#### About Validation
+* Bean Validation 
+
+* @CommandHandler Validation
+
+* Message Dispach Interceptor
+
+* set based consistency validation
+how to check if record already exists in a database table?
+how to check if Product already exist?
+how to check if User already exist?
+  
+Lookup DB: 
+
+#### How to install Axon Server  
 Run the following command:
   ```sh
    docker run -d --name axonserver -p 8024:8024 -p 8124:8124 -v "W:\documents\axon-docker\data":/data -v "W:\documents\axon-docker\eventdata":/eventdata -v "W:\documents\axon-docker\config":/config axoniq/axonserver
@@ -134,6 +148,7 @@ localhost:8088/products-service/products /GET ile veriyi alabiliyor.
 6. https://alperkiraz.medium.com/event-sourcing-nedir-4726c2a5f37c
 7. https://martinfowler.com/bliki/CQRS.html
 8. https://blog.burakkutbay.com/spring-boot-h2-gomulu-veritabani-kullanmak.html/
+9. http://localhost:8088/actuator/gateway/routes
 
 ### Other Examples
 
