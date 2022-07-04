@@ -126,6 +126,7 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Service-Gateway](http://localhost:8088/swagger-ui/)
 * [Product Database](http://localhost:RANDOM_PORT/api/v1/h2-console)
 
+# localhost:8088/product-service/api/v1/products/all
 
 ### Todo List  
 * All project DEBUG
