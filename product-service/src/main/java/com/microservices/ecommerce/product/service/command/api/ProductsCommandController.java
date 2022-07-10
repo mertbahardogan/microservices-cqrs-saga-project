@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("/products")
 public class ProductsCommandController {
 
     private final CommandGateway commandGateway;

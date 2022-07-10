@@ -131,7 +131,7 @@ axoniq.axonserver.devmode.enabled=true
 ### Todo List  
 * All project DEBUG
 * Product Gateway URL does not work. IMPORTANT
-localhost:8088/products-service/products /GET ile veriyi alabiliyor.
+* localhost:8088/products-service/products /GET ile veriyi alabiliyor.
   
 * Why we used Serializable and serialVersionUID in entity class?
 * Why I did not see validation errors in aggregate class?

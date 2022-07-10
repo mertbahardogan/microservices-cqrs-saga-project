@@ -5,9 +5,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>product-service</module>
-        <module>discovery-service</module>
-        <module>api-gateway</module>
+        <module>discovery-server</module>
         <module>admin-server</module>
+        <module>gateway-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
