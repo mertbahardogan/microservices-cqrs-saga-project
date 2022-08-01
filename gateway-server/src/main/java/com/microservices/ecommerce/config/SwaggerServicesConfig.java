@@ -56,13 +56,5 @@ public class SwaggerServicesConfig {
         public void setVersion(String version) {
             this.version = version;
         }
-
-        @Override
-        public String toString() {
-            return "SwaggerServices [name=" + name + ", url=" + url + ", version=" + version + "]";
-        }
-
-
     }
-
 }
