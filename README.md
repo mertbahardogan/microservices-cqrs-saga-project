@@ -102,6 +102,11 @@ how to check if record already exists in a database table?
 how to check if Product already exist?
 how to check if User already exist?
   
+#### About Error Handling and Rollback Transaction
+-Centralized Exception Handling with @ControllerAdvice
+-Using @ExceptionHandler for rollback and writing log in ProductEventsHandler class
+-ListenerInvocationHandler: Logging, Transaction rollback. Configuring in ProductServiceApplication
+  
 Lookup DB: 
 
 #### How to install Axon Server  
@@ -128,8 +133,10 @@ axoniq.axonserver.devmode.enabled=true
 # localhost:8088/product-service/api/v1/products/all
 
 ### Todo List  
-* All project DEBUG
-* Gateway Filter
+* Swagger 3'e taşıma
+* Feign Client? Scheduled? ile random port alma
+* Central exception request? and try exception sides 102.ders
+* product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı
   
 * Why we used Serializable and serialVersionUID in entity class?
 * Why I did not see validation errors in aggregate class?

@@ -20,7 +20,7 @@ Command Bus -> Aggregate -> Event Bus
 public class ProductAggregate {
 
     @AggregateIdentifier  // should be String, UUD or Integer (not primitive) etc.
-    private String productId; // this field must match create Product Command productId otherwise aggregate not found error will be returned.
+    private String productId; // this field must to match create Product Command productId otherwise aggregate not found error will be returned.
     private String title;
     private BigDecimal price;
     private Integer quantity;
@@ -31,7 +31,7 @@ public class ProductAggregate {
 
     // Second Const: Publish Event
     @CommandHandler
-    public ProductAggregate(CreateProductCommand createProductCommand) {
+    public ProductAggregate(CreateProductCommand createProductCommand) throws Exception{
 
         // Validate CreateProductCommand
         if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
@@ -47,8 +47,11 @@ public class ProductAggregate {
         // The Apply method is used to publish an event over an aggregate.
         // While executing a command, it notifies the rest of the application that a new event has been created.
         AggregateLifecycle.apply(productCreatedEvent); // publish event
+
+//        if(true) throw new Exception("An error took place in the CreateProductCommand @CommandHandler method");
     }
 
+    // If the above methods throws any exception can not call on method any time. (CommandExecutionException)
     @EventSourcingHandler
     public void on(ProductCreatedEvent productCreatedEvent) {
         this.productId = productCreatedEvent.getProductId();

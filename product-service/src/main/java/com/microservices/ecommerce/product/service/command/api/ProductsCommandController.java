@@ -31,12 +31,15 @@ public class ProductsCommandController {
 
         String returnedValue;
 
-        try {
-            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate constructor.
-            returnedValue = commandGateway.sendAndWait(createProductCommand);
-        }catch (Exception e){
-            returnedValue=e.getLocalizedMessage();
-        }
+        returnedValue = commandGateway.sendAndWait(createProductCommand);
+
+
+//        try {
+//            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate constructor.
+//            returnedValue = commandGateway.sendAndWait(createProductCommand);
+//        }catch (Exception e){
+//            returnedValue=e.getLocalizedMessage();
+//        }
 
         return returnedValue;
     }
