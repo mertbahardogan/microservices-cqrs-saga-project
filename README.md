@@ -136,7 +136,10 @@ axoniq.axonserver.devmode.enabled=true
 * Swagger 3'e taşıma
 * Feign Client? Scheduled? ile random port alma
 * Central exception request? and try exception sides 102.ders
-* product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı
+* product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı (tüm stringleri aynı zamanda)
+* Packageları tekil isim olarak yap.
+* Order servisi geliştir
+* Order servise swagger ekle ve gateway swaggerda 2 adet API gör
   
 * Why we used Serializable and serialVersionUID in entity class?
 * Why I did not see validation errors in aggregate class?
