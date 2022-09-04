@@ -9,6 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class ErrorMessage {
 
+    private final Boolean isSuccess;
+//    private final String errorTitle;  //TODO
+    private final String errorMessage;
+    private final String errorCode;
     private final Date timestamp;
-    private final String message;
 }

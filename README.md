@@ -131,6 +131,7 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Database](http://localhost:RANDOM_PORT/h2-console)
 
 ### Todo List  
+* TODO: Custom Logger.
 * Feign Client? Scheduled? ile random port alma
 * Central exception request? and try exception sides 102.ders
 * product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı (tüm stringleri aynı zamanda)
