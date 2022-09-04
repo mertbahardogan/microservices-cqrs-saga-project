@@ -73,6 +73,7 @@ public class ProductServiceApplication {
         config.addAllowedMethod("*");
 
         source.registerCorsConfiguration("/v2/api-docs", config);
+        source.registerCorsConfiguration("/products/**", config);
         return new CorsFilter(source);
     }
 }

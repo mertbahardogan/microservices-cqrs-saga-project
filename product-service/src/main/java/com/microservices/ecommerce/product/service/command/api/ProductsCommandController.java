@@ -20,7 +20,7 @@ public class ProductsCommandController {
         this.commandGateway = commandGateway;
     }
 
-    @PostMapping()
+    @PostMapping("new-product")
     public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel) {
 
         CreateProductCommand createProductCommand = CreateProductCommand.builder()

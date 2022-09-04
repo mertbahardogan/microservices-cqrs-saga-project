@@ -127,17 +127,13 @@ axoniq.axonserver.devmode.enabled=true
 
 * [Axon Server](http://localhost:8024/)
 * [Product Service-Swagger](http://localhost:RANDOM_PORT/api/v1/swagger-ui/)
-* [Product Service-Gateway](http://localhost:8088/swagger-ui/)
-* [Product Database](http://localhost:RANDOM_PORT/api/v1/h2-console)
-
-# localhost:8088/product-service/api/v1/products/all
+* [Gateway-Swagger-Global](http://localhost:9000/swagger-ui.html)
+* [Product Database](http://localhost:RANDOM_PORT/h2-console)
 
 ### Todo List  
-* Swagger 3'e taşıma
 * Feign Client? Scheduled? ile random port alma
 * Central exception request? and try exception sides 102.ders
 * product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı (tüm stringleri aynı zamanda)
-* Packageları tekil isim olarak yap.
 * Order servisi geliştir
 * Order servise swagger ekle ve gateway swaggerda 2 adet API gör
   
