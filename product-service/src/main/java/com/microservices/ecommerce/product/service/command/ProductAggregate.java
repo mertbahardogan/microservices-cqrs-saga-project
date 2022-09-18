@@ -26,12 +26,11 @@ public class ProductAggregate {
     private Integer quantity;
 
     // First Const: Default, NoArgsConst
-    public ProductAggregate() {
-    }
+    public ProductAggregate() {}
 
     // Second Const: Publish Event
     @CommandHandler
-    public ProductAggregate(CreateProductCommand createProductCommand) throws Exception{
+    public ProductAggregate(CreateProductCommand createProductCommand){
 
         // Validate CreateProductCommand
         if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {

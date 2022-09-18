@@ -131,16 +131,15 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Database](http://localhost:RANDOM_PORT/h2-console)
 
 ### Todo List  
-* TODO: Custom Logger.
+* TODO: Custom Logger
+* Success Response type like ErrorResponse
 * Feign Client? Scheduled? ile random port alma
 * Central exception request? and try exception sides 102.ders
 * product-group ne işe yarıyordu? string olarak bırakmayıp sabit olarak taşı (tüm stringleri aynı zamanda)
 * Order servisi geliştir
 * Order servise swagger ekle ve gateway swaggerda 2 adet API gör
-  
 * Why we used Serializable and serialVersionUID in entity class?
 * Why I did not see validation errors in aggregate class?
-* What is the public void on class?
 * AxonConfig (5): All events come again every starts.
 * db-gateway-debug
 

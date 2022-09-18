@@ -20,7 +20,7 @@ public class ProductsCommandController {
         this.commandGateway = commandGateway;
     }
 
-    @PostMapping("new-product")
+    @PostMapping
     public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel) {
 
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
@@ -32,15 +32,6 @@ public class ProductsCommandController {
         String returnedValue;
 
         returnedValue = commandGateway.sendAndWait(createProductCommand);
-
-
-//        try {
-//            // Send Command Object to Command Bus. sendAndWait wait for command to execute. Jump to Aggregate Class, ProductAggregate constructor.
-//            returnedValue = commandGateway.sendAndWait(createProductCommand);
-//        }catch (Exception e){
-//            returnedValue=e.getLocalizedMessage();
-//        }
-
         return returnedValue;
     }
 }

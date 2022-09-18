@@ -2,7 +2,7 @@ package com.microservices.ecommerce.product.service.command.interceptors;
 
 import com.microservices.ecommerce.product.service.command.CreateProductCommand;
 import com.microservices.ecommerce.product.service.core.data.ProductLookupEntity;
-import com.microservices.ecommerce.product.service.core.dataAccess.ProductLookupDao;
+import com.microservices.ecommerce.product.service.core.dataAccess.ProductLookupRepository;
 import org.axonframework.commandhandling.CommandMessage;
 import org.axonframework.messaging.MessageDispatchInterceptor;
 import org.slf4j.Logger;
@@ -32,11 +32,11 @@ Interceptor is between of the CommandGateway (sendAndWait after there) and the C
 @Component
 public class CreateProductCommandInterceptor implements MessageDispatchInterceptor<CommandMessage<?>> {
 
-    private final ProductLookupDao productLookupDao;
+    private final ProductLookupRepository productLookupRepository;
 
     @Autowired
-    public CreateProductCommandInterceptor(ProductLookupDao productLookupDao) {
-        this.productLookupDao = productLookupDao;
+    public CreateProductCommandInterceptor(ProductLookupRepository productLookupRepository) {
+        this.productLookupRepository = productLookupRepository;
     }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CreateProductCommandInterceptor.class);
@@ -52,7 +52,7 @@ public class CreateProductCommandInterceptor implements MessageDispatchIntercept
             if (CreateProductCommand.class.equals(command.getPayloadType())) {
                 CreateProductCommand createProductCommand = (CreateProductCommand) command.getPayload();
 
-                ProductLookupEntity productLookupEntity = productLookupDao.findByProductIdOrTitle(createProductCommand.getProductId(),
+                ProductLookupEntity productLookupEntity = productLookupRepository.findByProductIdOrTitle(createProductCommand.getProductId(),
                         createProductCommand.getTitle());
 
                 if (productLookupEntity != null) {
