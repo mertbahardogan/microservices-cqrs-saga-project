@@ -4,9 +4,13 @@ import com.microservices.ecommerce.product.service.command.CreateProductCommand;
 import com.microservices.ecommerce.product.service.command.models.CreateProductRestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.InetSocketAddress;
 import java.util.UUID;
 
 @RestController
@@ -33,5 +37,13 @@ public class ProductsCommandController {
 
         returnedValue = commandGateway.sendAndWait(createProductCommand);
         return returnedValue;
+    }
+
+    @GetMapping("/getBaseUrl")
+    public ResponseEntity<String> getBaseUrl(@RequestHeader HttpHeaders headers) {
+        InetSocketAddress host = headers.getHost();
+        String url = "http://" + host.getHostName() + ":" + host.getPort();
+        return new ResponseEntity<>(String.format("Base URL = %s", url), HttpStatus.OK);
+        //Access: http://localhost:9001/products/getBaseUrl
     }
 }
