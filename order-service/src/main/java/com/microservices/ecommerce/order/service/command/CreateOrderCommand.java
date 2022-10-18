@@ -2,11 +2,11 @@ package com.microservices.ecommerce.order.service.command;
 
 import com.microservices.ecommerce.order.service.core.enums.OrderStatus;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Builder
-@Getter
+@Data
 public class CreateOrderCommand {
 
     @TargetAggregateIdentifier

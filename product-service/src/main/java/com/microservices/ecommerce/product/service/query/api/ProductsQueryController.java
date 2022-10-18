@@ -5,8 +5,6 @@ import com.microservices.ecommerce.product.service.query.models.ProductRestModel
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,15 +22,7 @@ public class ProductsQueryController {
         this.queryGateway = queryGateway;
     }
 
-    @Autowired
-    private Environment environment;
-
-    @GetMapping
-    public String getPortNumber() {
-        return "HTTP GET WORKED AT: " + environment.getProperty("local.server.port");
-    }
-
-    @GetMapping("/all-products")
+    @GetMapping()
     public List<ProductRestModel> getProducts() {
         // For query parameter.
         FindProductsQuery findProductsQuery = new FindProductsQuery();

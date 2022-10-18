@@ -1,7 +1,7 @@
 package com.microservices.ecommerce.product.service.query;
 
 import com.microservices.ecommerce.product.service.core.data.ProductEntity;
-import com.microservices.ecommerce.product.service.core.dataAccess.ProductDao;
+import com.microservices.ecommerce.product.service.core.dataAccess.ProductsRepository;
 import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;
@@ -17,10 +17,10 @@ The method (event handler) provides, that every time an event comes from the com
 @ProcessingGroup("product-group")
 public class ProductEventsHandler {
 
-    private final ProductDao productDao;
+    private final ProductsRepository productsRepository;
 
-    public ProductEventsHandler(ProductDao productDao) {
-        this.productDao = productDao;
+    public ProductEventsHandler(ProductsRepository productsRepository) {
+        this.productsRepository = productsRepository;
     }
 
     // The both of methods, at the following, depending to ProductsServiceEventsHander class. The configure at Application class.
@@ -43,12 +43,11 @@ public class ProductEventsHandler {
         BeanUtils.copyProperties(productCreatedEvent, productEntity);
 
         try {
-            productDao.save(productEntity);
+            productsRepository.save(productEntity);
         } catch (IllegalArgumentException exception) {
-            exception.printStackTrace();
+            exception.printStackTrace();   //TODO: What is that?
         }
 
-        if(true) throw new Exception("An error took place in the CreateProductCommand @CommandHandler method");
-
+//        if(true) throw new Exception("An error took place in the CreateProductCommand @CommandHandler method"); // Try for see Error Process.
     }
 }

@@ -21,22 +21,22 @@ public class ProductsServiceErrorHandling {
 
     @ExceptionHandler(value = {IllegalStateException.class})
     public ResponseEntity<Object> handleIllegalStateException(IllegalStateException ex, WebRequest request) {
-        ErrorMessage errorMessage = new ErrorMessage(false, ex.getMessage(), ErrorCode.ILLEGAL_STATE_EXCEPTION, new Date());
-        LOGGER.error("An error occurred: " + errorMessage + " and request details: " + request.toString());
-        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        ErrorResponse errorResponse = new ErrorResponse(false, "Illegal State Exception", ex.getMessage(), ErrorCode.ILLEGAL_STATE_EXCEPTION, new Date());
+        LOGGER.error("An error occurred: " + errorResponse + " and request details: " + request.toString());
+        return new ResponseEntity<>(errorResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<Object> handleOtherExceptions(Exception ex, WebRequest request) {
-        ErrorMessage errorMessage = new ErrorMessage(false, ex.getMessage(), ErrorCode.OTHER_EXCEPTIONS, new Date());
-        LOGGER.error("An error occurred: " + errorMessage + " and request details: " + request.toString());
-        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        ErrorResponse errorResponse = new ErrorResponse(false, "Business Exception", ex.getMessage(), ErrorCode.OTHER_EXCEPTIONS, new Date());
+        LOGGER.error("An error occurred: " + errorResponse + " and request details: " + request.toString());
+        return new ResponseEntity<>(errorResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(value = {CommandExecutionException.class})
     public ResponseEntity<Object> handleCommandExecutionException(CommandExecutionException ex, WebRequest request) {
-        ErrorMessage errorMessage = new ErrorMessage(false, ex.getMessage(), ErrorCode.COMMAND_EXECUTION_EXCEPTION, new Date());
-        LOGGER.error("An error occurred: " + errorMessage + "and request details: " + request.toString());
-        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        ErrorResponse errorResponse = new ErrorResponse(false, "Command Execution Exception", ex.getMessage(), ErrorCode.COMMAND_EXECUTION_EXCEPTION, new Date());
+        LOGGER.error("An error occurred: " + errorResponse + "and request details: " + request.toString());
+        return new ResponseEntity<>(errorResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
