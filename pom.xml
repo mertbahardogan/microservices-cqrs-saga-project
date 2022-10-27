@@ -8,6 +8,7 @@
         <module>discovery-server</module>
         <module>gateway-server</module>
         <module>order-service</module>
+        <module>core</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
