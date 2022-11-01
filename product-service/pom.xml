@@ -76,6 +76,12 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <version>2.7.5</version>
         </dependency>
+        <!-- Internal Dependency -->
+        <dependency>
+            <groupId>com.microservices.ecommerce</groupId>
+            <artifactId>core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
