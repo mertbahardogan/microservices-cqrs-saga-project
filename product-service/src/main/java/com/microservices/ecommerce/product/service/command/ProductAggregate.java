@@ -1,5 +1,7 @@
 package com.microservices.ecommerce.product.service.command;
 
+import com.microservices.ecommerce.commands.ReserveProductCommand;
+import com.microservices.ecommerce.events.ProductReservedEvent;
 import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -26,11 +28,12 @@ public class ProductAggregate {
     private Integer quantity;
 
     // First Const: Default, NoArgsConst
-    public ProductAggregate() {}
+    public ProductAggregate() {
+    }
 
     // Second Const: Publish Event
     @CommandHandler
-    public ProductAggregate(CreateProductCommand createProductCommand){
+    public ProductAggregate(CreateProductCommand createProductCommand) {
 
         // Validate CreateProductCommand
         if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
@@ -47,7 +50,23 @@ public class ProductAggregate {
         // While executing a command, it notifies the rest of the application that a new event has been created.
         AggregateLifecycle.apply(productCreatedEvent); // publish event
 
-//        if(true) throw new Exception("An error took place in the CreateProductCommand @CommandHandler method");
+        // if(true) throw new Exception("An error took place in the CreateProductCommand @CommandHandler method");
+    }
+
+    @CommandHandler
+    public void handle(ReserveProductCommand reserveProductCommand) {
+        // This method catch up the event that throw from OrderSaga class.
+        if (quantity < reserveProductCommand.getQuantity()) {
+            throw new IllegalArgumentException("Insufficient of items in stock");
+        }
+        // TODO: Instead of this, copyProperties?
+        ProductReservedEvent productReservedEvent = ProductReservedEvent.builder()
+                .orderId(reserveProductCommand.getOrderId())
+                .productId(reserveProductCommand.getProductId())
+                .quantity(reserveProductCommand.getQuantity())
+                .userId(reserveProductCommand.getUserId())
+                .build();
+        AggregateLifecycle.apply(productReservedEvent);
     }
 
     // If the above methods throws any exception can not call on method any time. (CommandExecutionException)
@@ -57,5 +76,10 @@ public class ProductAggregate {
         this.title = productCreatedEvent.getTitle();
         this.price = productCreatedEvent.getPrice();
         this.quantity = productCreatedEvent.getQuantity();
+    }
+
+    @EventSourcingHandler
+    public void on(ProductReservedEvent productReservedEvent) {
+        this.quantity -= productReservedEvent.getQuantity();
     }
 }
