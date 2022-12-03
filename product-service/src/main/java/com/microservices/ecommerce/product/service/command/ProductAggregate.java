@@ -1,7 +1,7 @@
 package com.microservices.ecommerce.product.service.command;
 
-import com.microservices.ecommerce.commands.ReserveProductCommand;
-import com.microservices.ecommerce.events.ProductReservedEvent;
+import com.microservices.ecommerce.command.ReserveProductCommand;
+import com.microservices.ecommerce.event.ProductReservedEvent;
 import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;

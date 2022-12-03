@@ -131,7 +131,7 @@ axoniq.axonserver.devmode.enabled=true
 * [Product Database](http://localhost:RANDOM_PORT/h2-console)
 
 ### Todo List  
-* Order Service ayağa kaldır.
+* Swaggerı taşı ve port ayarını eski haline getir.
 * Feign Client kullanarak dinamik port ile 2 servise swagger bağla.
 * CQRS için döküman çıkart.
 * CQRS eğitimini bitir.

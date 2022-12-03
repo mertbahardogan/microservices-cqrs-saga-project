@@ -1,6 +1,6 @@
 package com.microservices.ecommerce.product.service.query;
 
-import com.microservices.ecommerce.events.ProductReservedEvent;
+import com.microservices.ecommerce.event.ProductReservedEvent;
 import com.microservices.ecommerce.product.service.core.data.ProductEntity;
 import com.microservices.ecommerce.product.service.core.dataAccess.ProductsRepository;
 import com.microservices.ecommerce.product.service.core.events.ProductCreatedEvent;

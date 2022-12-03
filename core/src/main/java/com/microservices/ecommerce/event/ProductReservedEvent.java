@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.events;
+package com.microservices.ecommerce.event;
 
 import lombok.Builder;
 import lombok.Data;
