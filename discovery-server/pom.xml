@@ -12,7 +12,7 @@
     <artifactId>discovery-server</artifactId>
 
     <dependencies>
-        <!-- Spring Cloud; Eureka Main Packages -->
+        <!-- Spring Cloud; Eureka PaymentServiceApplication Packages -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>

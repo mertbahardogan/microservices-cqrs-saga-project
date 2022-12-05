@@ -7,8 +7,7 @@ import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserEventsHandler {
-    //TODO: make sure naming.
+public class UserQueryHandler {
 
     @QueryHandler
     public User findUserPaymentDetails(FetchUserPaymentDetailsQuery query) {
