@@ -1,4 +1,4 @@
-package com.microservices.ecommerce.commands;
+package com.microservices.ecommerce.command;
 
 
 import lombok.Builder;

@@ -9,6 +9,8 @@
         <module>gateway-server</module>
         <module>order-service</module>
         <module>core</module>
+        <module>user-service</module>
+        <module>payment-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -45,7 +47,7 @@
         <spring-web-reactive.version>5.0.0.M4</spring-web-reactive.version>
         <guava.version>30.1-jre</guava.version>
         <axon-spring-boot-starter.version>4.5.5</axon-spring-boot-starter.version>
-        <h2-database.version>1.4.200</h2-database.version>
+        <h2-database.version>2.1.214</h2-database.version>
         <javax.version>4.0.1</javax.version>
     </properties>
 
