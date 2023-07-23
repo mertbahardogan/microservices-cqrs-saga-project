@@ -24,11 +24,8 @@ public class OrderSaga {
     //Saga, StartSaga, EndSaga need to have that annotations.
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderSaga.class);
-    @Autowired
-    private transient CommandGateway commandGateway;
-
-    @Autowired
-    private transient QueryGateway queryGateway;
+    private CommandGateway commandGateway;
+    private QueryGateway queryGateway;
 
     @Autowired
     public OrderSaga(CommandGateway commandGateway) {
