@@ -1,15 +1,4 @@
-# Getting Started with Microservices Arch.
-
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#">Technologies</a>
-    </li>
-  </ol>
-</details>
-
-## Built With
+# Getting Started with CQRS
 
 ### Technologies
 1. Java 
